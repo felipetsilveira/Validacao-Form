@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validacao</title>
+    <!-- CSS inserido no corpo do documento apenas por se tratar de um exercício prático -->
+    <style>
+        * {
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h2 {
+            margin-top: 50px
+        }
+        
+        .red {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <h2>Email form com validação</h2>
+    <h5>Válidos somente domínios gratuitos<h5>
+    <br />
+    <form action="">
+        <input type="email" texto-email>
+        <br />
+        <br />
+        <input type="button" value="ENVIAR" onclick="validarEmail()">
+        <h2 resposta-validacao></h2>
+    </form>
+    
+    <script>
+    
+        function validarEmail() {
+            let email = document.querySelector('[texto-email]').value
+            // Há outras expressoes a serem usadas, usei a mais prática por ser um exercício
+            let regX = /\@(hotmail|outlook|gmail)\.com/;
+                if(regX.test(email) == false) {
+                    document.querySelector('[resposta-validacao]').innerHTML = 'Não é um email válido'
+                    document.querySelector('[resposta-validacao]').classList.add('red')
+                } else {
+                    document.querySelector('[resposta-validacao]').innerHTML = 'Email enviado!'
+                    document.querySelector('[resposta-validacao]').classList.remove('red')
+                }
+            return true
+        }
+        
+    </script>
+</body>
+</html>
